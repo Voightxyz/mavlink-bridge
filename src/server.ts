@@ -9,7 +9,14 @@ import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 
 const here = dirname(fileURLToPath(import.meta.url))
-const INDEX = join(here, '..', 'public', 'index.html')
+const PUBLIC = join(here, '..', 'public')
+const INDEX = join(PUBLIC, 'index.html')
+/** Static files of the ground-station view: path → [file, content type]. */
+const STATIC: Record<string, [string, string]> = {
+  '/app.js': ['app.js', 'text/javascript; charset=utf-8'],
+  '/app.css': ['app.css', 'text/css; charset=utf-8'],
+  '/assets/voight-mark.svg': [join('assets', 'voight-mark.svg'), 'image/svg+xml'],
+}
 
 export interface ServerHooks {
   state: () => unknown
@@ -27,9 +34,10 @@ export function startServer(port: number, hooks: ServerHooks) {
       res.end(readFileSync(INDEX))
       return
     }
-    if (url === '/assets/voight-mark.svg') {
-      res.writeHead(200, { 'content-type': 'image/svg+xml', 'cache-control': 'max-age=3600' })
-      res.end(readFileSync(join(here, '..', 'public', 'assets', 'voight-mark.svg')))
+    const file = STATIC[url.split('?')[0]]
+    if (file) {
+      res.writeHead(200, { 'content-type': file[1], 'cache-control': 'no-store' })
+      res.end(readFileSync(join(PUBLIC, file[0])))
       return
     }
     if (url === '/events') {
