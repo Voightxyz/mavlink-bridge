@@ -8,7 +8,7 @@ An AI agent flies a real autopilot, and every decision it makes is observable.
 
 ArduPilot flies the aircraft. A language-model agent decides what the aircraft should do next and talks to the autopilot over MAVLink. Every decision, every MAVLink command with the autopilot's acknowledgement, every inspection pass and every fault streams to [Voight](https://voight.xyz) as one trace, so a flight can be followed live, replayed and debugged like any other agent run.
 
-![Inspection pass at flare stack FS-1](docs/media/inspection-fs1.jpg)
+https://github.com/user-attachments/assets/4fb089a2-f7f0-40f9-81b1-d663aea93afa
 
 ## How it works
 
