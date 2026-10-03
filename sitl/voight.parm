@@ -1,0 +1,33 @@
+# Inspection quad for the Voight demo. Loaded after ArduPilot's copter.parm.
+
+# Cruise and return
+WP_SPD          12
+WP_ACC          3
+WP_SPD_UP       3
+WP_SPD_DN       3
+LAND_SPD_MS     0.7
+LAND_ALT_LOW_M  6
+RTL_ALT_M       60
+RTL_SPEED_MS    12
+RTL_LOIT_TIME   2000
+FENCE_ENABLE    0
+
+# 8 Ah pack
+BATT_CAPACITY   8000
+
+# GNSS receiver: 17 satellites in view
+SIM_GPS1_NUMSATS 17
+
+# Navigation without GNSS. EKF source set 1 is GNSS (default). Source set 2
+# is visual-inertial odometry (a VIO camera reporting over MAVLink, simulated) for
+# position and velocity, barometer for height, compass for yaw. The agent
+# switches to set 2 with MAV_CMD_SET_EKF_SOURCE_SET when GNSS is rejected.
+VISO_TYPE        1
+SERIAL5_PROTOCOL 2
+EK3_SRC2_POSXY   6
+EK3_SRC2_VELXY   6
+EK3_SRC2_POSZ    1
+EK3_SRC2_VELZ    6
+EK3_SRC2_YAW     1
+SIM_VICON_P_SD   0.05
+SIM_VICON_V_SD   0.02

@@ -1,0 +1,40 @@
+{
+  "name": "voight-mavlink-bridge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "An autonomous agent flies ArduPilot over MAVLink; every decision, command, acknowledgement and fault streams to Voight.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "demo": "tsx src/main.ts",
+    "dry": "VOIGHT_DRY_RUN=1 tsx src/main.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "node-mavlink": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Voightxyz/voight-mavlink-bridge.git"
+  },
+  "homepage": "https://voight.xyz",
+  "keywords": [
+    "ardupilot",
+    "mavlink",
+    "sitl",
+    "drone",
+    "uav",
+    "ai-agent",
+    "observability",
+    "gnss-spoofing",
+    "voight"
+  ]
+}
