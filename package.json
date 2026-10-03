@@ -10,7 +10,8 @@
   "scripts": {
     "demo": "tsx src/main.ts",
     "dry": "VOIGHT_DRY_RUN=1 tsx src/main.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test test/*.test.ts"
   },
   "dependencies": {
     "node-mavlink": "^2.3.0"

@@ -1,5 +1,6 @@
 # MAVLink Bridge
 
+[![CI](https://github.com/Voightxyz/mavlink-bridge/actions/workflows/ci.yml/badge.svg)](https://github.com/Voightxyz/mavlink-bridge/actions/workflows/ci.yml)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
 [![ArduPilot](https://img.shields.io/badge/ArduCopter-4.7.1%20SITL-1f6feb)](https://ardupilot.org)
 [![MAVLink](https://img.shields.io/badge/MAVLink-2-555)](https://mavlink.io)
@@ -103,6 +104,8 @@ npm run demo
 
 `npm run demo` starts ArduCopter SITL (log in `.sitl/sitl.log`), connects to it and flies the mission. Open http://localhost:4200 for the ground-station view next to the Voight dashboard. Keys: `1` auto camera, `2` chase, `3` site, `4` top, `H` hides the camera control. `GET /restart` starts a new mission with a new trace once the aircraft has landed.
 
+`npm test` runs the unit tests and `npm run typecheck` the type check, the same two steps CI runs on every push.
+
 Without keys the bridge prints the events instead of sending them, and the rule-based agent flies alone. `SITL=external` connects to a SITL, or a vehicle on a TCP link, that is already running. `FAULT=none` flies the mission without the attack. All options are in [`.env.example`](.env.example).
 
 ## Where the numbers come from
@@ -120,7 +123,8 @@ Everything the agent and the panels read comes from MAVLink, as a ground station
 | `src/spoof.ts` | the staged GNSS spoofing attack (test harness, not part of the vehicle) |
 | `src/sitl.ts` | starts ArduCopter SITL |
 | `sitl/voight.parm` | vehicle parameters on top of ArduPilot's copter defaults: speeds, battery, EKF source set 2 for VIO |
-| `public/index.html` | 3D ground-station view (Three.js); `?replay` renders a recorded flight frame by frame |
+| `public/` | 3D ground-station view: `index.html`, `app.js` (Three.js scene and panels), `app.css`; `?replay` renders a recorded flight frame by frame |
+| `test/` | safety rules, stale-decision handling, coordinate frame, no-fly zone geometry, the staged spoofing (`npm test`) |
 
 ## License
 

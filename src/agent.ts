@@ -72,12 +72,17 @@ export function violates(cmd: Command, snap: Snapshot): string | null {
   return null
 }
 
+/** A decision made on telemetry from before GNSS was rejected is stale once it has been: drop it and decide again. */
+export function isStale(decidedOn: Snapshot, now: Snapshot): boolean {
+  return !decidedOn.faultDetected && now.faultDetected
+}
+
 /** Keep model rationale short and operational, the way an operator log reads. */
 export function tidyRationale(text: string): string {
   let t = text.replace(/\s+/g, ' ').trim()
   t = t.replace(/^(okay|ok|alright|sure)[,.!]?\s*/i, '').replace(/^(operator )?log:\s*/i, '')
   t = t.replace(/\b(I will|I'll|I am going to|Let me)\b/gi, '').replace(/\s{2,}/g, ' ').trim()
-  t = t.replace(/—|–/g, ',')
+  t = t.replace(/\s*[\u2014\u2013]\s*/g, ', ')
   const sentences = t.match(/[^.!?]+[.!?]?/g) ?? [t]
   let out = ''
   for (const s of sentences) {

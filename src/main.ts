@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url'
 import { Mav } from './mav.js'
 import { Vehicle, type MavOp, type Phase, type Snapshot } from './vehicle.js'
 import { GnssSpoofer } from './spoof.js'
-import { decide, autopilot, violates, type Decision, SAFETY, DEFAULT_LLM_BASE_URL } from './agent.js'
+import { decide, autopilot, violates, isStale, type Decision, SAFETY, DEFAULT_LLM_BASE_URL } from './agent.js'
 import { VoightClient, type VoightEvent } from './voight.js'
 import { startServer } from './server.js'
 import { startSitl, defaultArdupilotDir } from './sitl.js'
@@ -239,7 +239,7 @@ async function tickDecision(snap: Snapshot) {
     // The model answered on telemetry that is seconds old: re-check against the aircraft now.
     const now = vehicle.snapshot()
     // GNSS was rejected while the model was thinking: its answer is stale. A fresh decision follows at once.
-    if (!snap.faultDetected && now.faultDetected) {
+    if (isStale(snap, now)) {
       console.log(`[agent] #${seq} dropped: made before the GNSS rejection`)
       decisionSeq--
       lastDecisionAt = -Infinity
