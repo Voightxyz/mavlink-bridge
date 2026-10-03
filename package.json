@@ -1,5 +1,5 @@
 {
-  "name": "voight-mavlink-bridge",
+  "name": "mavlink-bridge",
   "version": "0.1.0",
   "private": true,
   "description": "An autonomous agent flies ArduPilot over MAVLink; every decision, command, acknowledgement and fault streams to Voight.",
@@ -23,7 +23,7 @@
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Voightxyz/voight-mavlink-bridge.git"
+    "url": "https://github.com/Voightxyz/mavlink-bridge.git"
   },
   "homepage": "https://voight.xyz",
   "keywords": [

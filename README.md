@@ -1,4 +1,4 @@
-# Voight MAVLink bridge
+# MAVLink Bridge
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue)](LICENSE)
 [![ArduPilot](https://img.shields.io/badge/ArduCopter-4.7.1%20SITL-1f6feb)](https://ardupilot.org)
@@ -14,7 +14,7 @@ ArduPilot flies the aircraft. A language-model agent decides what the aircraft s
 
 ```mermaid
 flowchart LR
-    A["Flight agent<br/>LLM + safety rules"] -- "one tool call<br/>every 2 s" --> B["voight-mavlink-bridge<br/>mission executive"]
+    A["Flight agent<br/>LLM + safety rules"] -- "one tool call<br/>every 2 s" --> B["MAVLink Bridge<br/>mission executive"]
     B -- "MAVLink 2 commands" --> C["ArduPilot<br/>ArduCopter 4.7.1 SITL"]
     C -- "telemetry, COMMAND_ACK,<br/>STATUSTEXT" --> B
     B -- "telemetry" --> A

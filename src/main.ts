@@ -179,7 +179,7 @@ function baseMeta(snap: Snapshot, extra: Record<string, unknown> = {}) {
     autopilot: firmware || 'ArduCopter',
     simulator: `ArduPilot SITL ×${SPEEDUP}`,
     link: `MAVLink 2 tcp:${MAV_PORT}`,
-    bridge: 'voight-mavlink-bridge/0.1',
+    bridge: 'mavlink-bridge/0.1',
     privacyLevel: 'standard',
     telemetry: telemetry(snap),
     ...extra,

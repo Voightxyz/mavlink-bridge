@@ -205,7 +205,7 @@ async function callModel(v: Vehicle, snap: Snapshot, opts: AgentOptions): Promis
       authorization: `Bearer ${opts.apiKey}`,
       'content-type': 'application/json',
       'HTTP-Referer': 'https://voight.xyz',
-      'X-Title': 'Voight MAVLink bridge',
+      'X-Title': 'MAVLink Bridge by Voight',
     },
     body: JSON.stringify(body),
     signal: AbortSignal.timeout(opts.timeoutMs ?? 10000),
