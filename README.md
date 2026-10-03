@@ -33,12 +33,12 @@ MSN-0427, site inspection: flare stack FS-1, tank farm TK-3 and cooling tower CT
 
 <table>
   <tr>
-    <td width="50%"><img src="docs/media/takeoff.jpg" alt="Takeoff from Pad A" /><br /><sub><b>Takeoff.</b> Armed in GUIDED and launched to 60 m with <code>MAV_CMD_COMPONENT_ARM_DISARM</code> and <code>MAV_CMD_NAV_TAKEOFF</code>, both acknowledged by the autopilot.</sub></td>
-    <td width="50%"><img src="docs/media/cruise.jpg" alt="Cruise toward FS-1" /><br /><sub><b>Cruise.</b> The executive sends <code>SET_POSITION_TARGET_GLOBAL_INT</code>; the agent checks GNSS against the EKF estimate on every decision.</sub></td>
+    <td width="50%" valign="top"><img src="docs/media/takeoff.jpg" alt="Takeoff from Pad A" /><br /><sub><b>Takeoff.</b> Armed in GUIDED and launched to 60 m with <code>MAV_CMD_COMPONENT_ARM_DISARM</code> and <code>MAV_CMD_NAV_TAKEOFF</code>, both acknowledged by the autopilot.</sub></td>
+    <td width="50%" valign="top"><img src="docs/media/cruise.jpg" alt="Cruise toward FS-1" /><br /><sub><b>Cruise.</b> The executive sends <code>SET_POSITION_TARGET_GLOBAL_INT</code>; the agent checks GNSS against the EKF estimate on every decision.</sub></td>
   </tr>
   <tr>
-    <td width="50%"><img src="docs/media/inspection-fs1.jpg" alt="Inspection pass at FS-1" /><br /><sub><b>Inspection pass.</b> On station at FS-1 with the camera on the flare stack; the pass is recorded as an <code>inspect_asset</code> action with its time on station.</sub></td>
-    <td width="50%"><img src="docs/media/site-overview.jpg" alt="Site overview after landing" /><br /><sub><b>Back on Pad A.</b> The site after an aborted mission: two of three assets inspected, landed 0 m from the pad.</sub></td>
+    <td width="50%" valign="top"><img src="docs/media/inspection-fs1.jpg" alt="Inspection pass at FS-1" /><br /><sub><b>Inspection pass.</b> On station at FS-1 with the camera on the flare stack; the pass is recorded as an <code>inspect_asset</code> action with its time on station.</sub></td>
+    <td width="50%" valign="top"><img src="docs/media/site-overview.jpg" alt="Site overview after landing" /><br /><sub><b>Back on Pad A.</b> The site after an aborted mission: two of three assets inspected, landed 0 m from the pad.</sub></td>
   </tr>
 </table>
 
